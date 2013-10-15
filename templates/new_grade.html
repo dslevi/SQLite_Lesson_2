@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+        .content {
+            text-align: center;
+            border-width: 0px 100px 0px 100px;
+            border-color: red;
+            width: 100%;
+        }
+     /*   .red {*/
+/*            background-color: red;
+            width: 33%;
+            height: 100%;
+            float: left;
+        }*/
+    </style>
+</head>
+<body>
+    <div class = "content">
+        <img src="static/img/small_logo.jpg"/>
+        <h1>Add a new grade:</h1>
+        <form action="/view_grade">
+            <label for="student">Enter github</label>
+            <input type="text" name="student" />
+            <br>
+            <label for="title">Enter project</label>
+            <input type="text" name="title" />
+            <br>
+            <label for="grade">Enter grade</label>
+            <input type="text" name="grade" />
+            <br>
+            <input type="submit">
+        </form>
+
+        <a href="/">Home</a>
+        <a href="/new_project">New Project</a>
+        <a href="/new_student">New Student</a>
+    </div>
+</body>
+</html>

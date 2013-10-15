@@ -1,0 +1,31 @@
+<html>
+<head>
+    <style>
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class = "content">
+        <img src="static/img/small_logo.jpg"/>
+        <h1>Make a new project:</h1>
+        <form action="/view_project">
+            <label for="title">Enter project title</label>
+            <input type="text" name="title" />
+            <br>
+            <label for="desc">Enter description</label>
+            <input type="text" name="desc" />
+            <br>
+            <label for="max">Enter max grade</label>
+            <input type="text" name="max" />
+            <br>
+            <input type="submit">
+        </form>
+
+        <a href="/">Home</a>
+        <a href="/new_student">New Student</a>
+        <a href="/new_grade">New Grade</a>
+    </div>
+</body>
+</html>

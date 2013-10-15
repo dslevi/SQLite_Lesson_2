@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style>
+        .content {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class = "content">
+        <img src="static/img/small_logo.jpg"/>
+
+        <h1>Make a new student:</h1>
+        <form action="/view_student">
+            <label for="first_name">Enter first name</label>
+            <input type="text" name="first_name" />
+            <br>
+            <label for="last_name">Enter last name</label>
+            <input type="text" name="last_name" />
+            <br>
+            <label for="github">Enter github id</label>
+            <input type="text" name="github" />
+            <br>
+            <input type="submit">
+        </form>
+
+        <a href="/">Home</a>
+        <a href="/new_project">New Project</a>
+        <a href="/new_grade">New Grade</a>
+    </div>
+</body>
+</html>

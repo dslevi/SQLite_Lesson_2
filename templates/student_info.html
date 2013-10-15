@@ -1,0 +1,36 @@
+<html>
+<body>
+    <img src="static/img/small_logo.jpg"/>
+
+    <h1>{{first_name}} {{last_name}} </h1>
+    <h3>Github account: {{github}}</h3>
+    <h3>Grades:</h3>
+    {% for grade in grades %}
+        {{grade}}
+        {% if loop.index % 2 == 0 %}
+        <br>
+        {% else %}
+        :
+        {% endif %}
+    {% endfor %}
+    <p>This student has shown......</p>
+    <p>It is my recommendation that....</p>
+    <br>
+    <br>
+    <p>All Projects:</p>
+    {% for project in projects %}
+        {% for title in project %}
+            <a href="/project_grades?project={{title}}">{{title}}</a>
+        {% endfor %}
+    {% endfor %}
+    <br>
+    <br>
+    <a href="/">Home</a>
+    <a href="/new_project">New Project</a>
+    <a href="/new_student">New Student</a>
+    <a href="/new_grade">New Grade</a>
+
+</body>
+</html>
+
+

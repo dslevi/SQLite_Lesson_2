@@ -1,0 +1,24 @@
+<html>
+<body>
+    <img src="static/img/small_logo.jpg"/>
+
+    <h1>{{project_name}}</h1>
+        {% for student in row %}
+            {% for item in student %}
+                {% if loop.index == 4 %}
+                    <p>Grade: {{item}} </p>
+                {% elif loop.index == 3 %}
+                    <p><a href="/student?github={{item}}">Github: {{item}}</a></p>
+                {% else %}
+                    {{item}}
+                {% endif %}
+            {% endfor %}
+            <br>
+        {% endfor %}
+
+    <a href="/">Home</a>
+    <a href="/new_project">New Project</a>
+    <a href="/new_student">New Student</a>
+    <a href="/new_grade">New Grade</a>
+</body>
+</html>
