@@ -23,21 +23,27 @@ def get_student():
 @app.route("/project_grades")
 def get_project_grades():
     hackbright_app.connect_to_db()
-    project = request.args.get("project")
-    rows = hackbright_app.get_all_students(project)
+    project = request.form.get("project")
+    rows = hackbright_app.get_all_students()
     return render_template("project_grades.html", project_name = project,
                                             row = rows)
+@app.route("/all_students")
+def all_students():
+    hackbright_app.connect_to_db()
+    # students = hackbright_app.get_all_student_info()
+    # return render_template("all_students.html", students = students)
+    pass
 
 @app.route("/new_student")
 def new_student():
     return render_template("new_student.html")
 
-@app.route("/view_student")
+@app.route("/view_student", methods=['POST'])
 def view_new_student():
     hackbright_app.connect_to_db()
-    first_name = request.args.get("first_name")
-    last_name = request.args.get("last_name")
-    github = request.args.get("github")
+    first_name = request.form.get("first_name")
+    last_name = request.form.get("last_name")
+    github = request.form.get("github")
     hackbright_app.make_new_student(first_name, last_name, github)
     return render_template("view_student.html", first = first_name,
                                                 last = last_name,
@@ -47,12 +53,12 @@ def view_new_student():
 def new_project():
     return render_template("new_project.html")
 
-@app.route("/view_project")
+@app.route("/view_project", methods=['POST'])
 def view_new_project():
     hackbright_app.connect_to_db()
-    title = request.args.get("title")
-    description = request.args.get("desc")
-    max_grade = request.args.get("max")
+    title = request.form.get("title")
+    description = request.form.get("desc")
+    max_grade = request.form.get("max")
     hackbright_app.make_new_project(title, max_grade, description)
     return render_template("view_project.html", title = title,
                                                 desc = description,
@@ -62,12 +68,12 @@ def view_new_project():
 def new_grade():
     return render_template("new_grade.html")
 
-@app.route("/view_grade")
+@app.route("/view_grade", methods=['POST'])
 def view_new_grade():
     hackbright_app.connect_to_db()
-    student = request.args.get("student")
-    title = request.args.get("title")
-    grade = request.args.get("grade")
+    student = request.form.get("student")
+    title = request.form.get("title")
+    grade = request.form.get("grade")
     hackbright_app.give_student_grade(student, title, grade)
     return render_template("view_grade.html", student = student,
                                                 title = title,

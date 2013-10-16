@@ -68,6 +68,12 @@ def get_all_grades(student):
        pg_list.append(x[1])
     return pg_list
 
+def get_all_student_info():
+    query = """SELECT DISTINCT Students.first_name, Students.last_name, github, title, grade FROM Students INNER JOIN ReportCardView ON (Students.first_name=ReportCardView.first_name)"""
+    DB.execute(query)
+    row = DB.fetchall()
+    return row
+
 def connect_to_db():
     global DB, CONN
     CONN = sqlite3.connect("hackbright.db")
